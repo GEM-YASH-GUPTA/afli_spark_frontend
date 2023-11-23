@@ -32,15 +32,44 @@ const steps = [
 	'Travel and Residence',
 	'Summary',
 ];
+
+interface CustomStepIconProps {
+	active: boolean;
+	completed: boolean;
+	step: number;
+}
+
+const CustomStepIcon: React.FC<CustomStepIconProps> = ({
+	active,
+	completed,
+	step,
+}) => {
+	return (
+		<div
+			style={{
+				width: 30,
+				height: 30,
+				borderRadius: '50%',
+				backgroundColor: active ? '#ff6002' : completed ? '#028e8b' : '#fffff',
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				color: active ? '#ffffff' : completed ? '#ffffff' : 'black',
+				border: active ? '' : completed ? '' : '2px solid #E5E5E5',
+				fontStyle: 'Montserrat',
+				fontWeight: '700',
+			}}
+		>
+			{step}
+		</div>
+	);
+};
+
 export default function Header() {
-	// const activeStep = 0
 	const [activeStep, setActiveStep] = React.useState(0);
 	const [progress, setProgress] = React.useState(
 		Math.ceil((activeStep / 7) * 100)
 	);
-	// const progress =0;
-	console.log(activeStep, progress);
-
 	const [completed, setCompleted] = React.useState<{
 		[k: number]: boolean;
 	}>({});
@@ -66,13 +95,15 @@ export default function Header() {
 	};
 
 	const handleComplete = () => {
-		console.log(activeStep + 1);
+		if (activeStep != steps.length) {
+			console.log(activeStep + 1);
 
-		setProgress(Math.ceil(((activeStep + 1) / 7) * 100));
-		const newCompleted = completed;
-		newCompleted[activeStep] = true;
-		setCompleted(newCompleted);
-		handleBack();
+			setProgress(Math.ceil(((activeStep + 1) / 7) * 100));
+			const newCompleted = completed;
+			newCompleted[activeStep] = true;
+			setCompleted(newCompleted);
+			handleBack();
+		}
 	};
 	return (
 		<>
@@ -107,7 +138,7 @@ export default function Header() {
 						<Stepper
 							activeStep={activeStep}
 							connector={<QontoConnector />}
-							className="xl:px-24"
+							className="xl:px-24 mt-3 mb-3"
 							nonLinear
 						>
 							{steps.map((label, index) => {
@@ -137,6 +168,9 @@ export default function Header() {
 													sx={{
 														color: index === activeStep ? 'red' : 'inherit', // Change the active tab color
 													}}
+													StepIconComponent={(props) => (
+														<CustomStepIcon {...props} step={index + 1} />
+													)}
 												>
 													{label}
 												</StepLabel>
@@ -149,6 +183,9 @@ export default function Header() {
 													sx={{
 														color: index === activeStep ? 'red' : 'inherit', // Change the active tab color
 													}}
+													StepIconComponent={(props) => (
+														<CustomStepIcon {...props} step={index + 1} />
+													)}
 												>
 													{label}
 												</StepLabel>
