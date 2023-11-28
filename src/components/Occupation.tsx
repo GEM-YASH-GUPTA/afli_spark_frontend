@@ -46,7 +46,7 @@ const OccupationComponent = () => {
 
 	return (
 		<div className="flex flex-col items-center justify-center p-8">
-			<Card className="rounded-2xl shadow-none" sx={{ minWidth: '90%' }}>
+			<Card className="rounded-2xl shadow-none w-10/12">
 				<CardContent className="p-8">
 					<Typography
 						className="font-Montserrat font-medium text-sm  "

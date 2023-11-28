@@ -22,6 +22,8 @@ import BackArrow from '../../assets/images/backArrowHeader.svg';
 import TopBar from '../../assets/images/topBar.svg';
 import transitions from '@material-ui/core/styles/transitions';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import Occupation from '../../pages/occupation';
+import LifestyleComponent from '../Lifestyle';
 
 const steps = [
 	'Occupation',
@@ -94,9 +96,11 @@ export default function Header() {
 		setActiveStep((prevActiveStep) => Math.max(0, prevActiveStep + 1));
 	};
 
+	console.log(activeStep, steps[activeStep]);
+
 	const handleComplete = () => {
 		if (activeStep != steps.length) {
-			console.log(activeStep + 1);
+			console.log(steps[activeStep]);
 
 			setProgress(Math.ceil(((activeStep + 1) / 7) * 100));
 			const newCompleted = completed;
@@ -109,7 +113,7 @@ export default function Header() {
 		<>
 			<CssBaseline />
 			<Container maxWidth={false} disableGutters>
-				<Box sx={{ bgcolor: '#F5F5F5' }}>
+				<Box sx={{ bgcolor: '#F5F5F5', height: 'max-content' }}>
 					<AppBar position="static" sx={{ backgroundColor: '#FFFFFF' }}>
 						<Avatar
 							variant="square"
@@ -199,6 +203,11 @@ export default function Header() {
 							<LinearProgress variant="determinate" value={progress} />
 						</Box>
 					</AppBar>
+					{steps[activeStep] == 'Occupation' ? (
+						<Occupation></Occupation>
+					) : (
+						<LifestyleComponent />
+					)}
 				</Box>
 			</Container>
 		</>
