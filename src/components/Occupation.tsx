@@ -28,7 +28,7 @@ const names = [
 	'Kelly Snyder',
 ];
 
-const OccupationComponent = () => {
+const Occupation = () => {
 	const [personName, setPersonName] = React.useState<string[]>([]);
 
 	const handleChange = (event: SelectChangeEvent<typeof personName>) => {
@@ -86,7 +86,7 @@ const OccupationComponent = () => {
 							))}
 						</Select>
 					</FormControl>
-					<div className="flex py-3">
+					<div className="flex flex-wrap w-full gap-y-2    py-3">
 						{personName.map((selected, ind) => (
 							<Box key={ind} className="flex flex-wrap gap-0.5">
 								<Chip
@@ -103,7 +103,7 @@ const OccupationComponent = () => {
 					</div>
 				</CardContent>
 			</Card>
-			<div className="flex mt-8">
+			<div className="flex  mt-8">
 				<ButtonComponent
 					variant="outlined"
 					text="Save And Exit"
@@ -121,4 +121,4 @@ const OccupationComponent = () => {
 	);
 };
 
-export default OccupationComponent;
+export default Occupation;

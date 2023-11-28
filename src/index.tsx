@@ -6,18 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { StyledEngineProvider } from '@mui/material/styles';
+import RoutesComponent from './routes/routes';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
+
 root.render(
-	<Provider store={store}>
-		<React.StrictMode>
+	<React.StrictMode>
+		<Provider store={store}>
 			<StyledEngineProvider injectFirst>
+				<RoutesComponent />
 				<App />
 			</StyledEngineProvider>
-		</React.StrictMode>
-	</Provider>
+		</Provider>
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

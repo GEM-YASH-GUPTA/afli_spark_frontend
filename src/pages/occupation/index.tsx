@@ -1,12 +1,12 @@
 import React from 'react';
-import OccupationComponent from '../../components/Occupation';
+import Occupation from '../../components/Occupation';
 
-const Occupation = () => {
+const OccupationPage = () => {
 	return (
 		<div>
-			<OccupationComponent />
+			<Occupation />
 		</div>
 	);
 };
 
-export default Occupation;
+export default OccupationPage;

@@ -5,7 +5,7 @@ import ToggleButtonComponent from './layout/shared/toggleButton';
 import CheckBoxComponent from './layout/shared/checkBox';
 import CloseIcon from '@mui/icons-material/Close';
 
-const LifestyleComponent = () => {
+const Lifestyle = () => {
 	const [toggleChecked, setToggleChecked] = useState(false);
 	const [checkBoxChecked, setcheckBoxChecked] = useState(false);
 
@@ -437,4 +437,4 @@ const LifestyleComponent = () => {
 	);
 };
 
-export default LifestyleComponent;
+export default Lifestyle;

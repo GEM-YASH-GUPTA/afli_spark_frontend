@@ -1,12 +1,12 @@
 import React from 'react';
-import LifestyleComponent from '../../components/Lifestyle';
+import Lifestyle from '../../components/Lifestyle';
 
-const Occupation = () => {
+const LifestylePage = () => {
 	return (
 		<div>
-			<LifestyleComponent />
+			<Lifestyle />
 		</div>
 	);
 };
 
-export default Occupation;
+export default LifestylePage;
