@@ -22,6 +22,7 @@ import BackArrow from '../../assets/images/backArrowHeader.svg';
 import TopBar from '../../assets/images/topBar.svg';
 import transitions from '@material-ui/core/styles/transitions';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { Outlet } from 'react-router-dom';
 
 const steps = [
 	'Occupation',
@@ -201,6 +202,7 @@ export default function Header() {
 					</AppBar>
 				</Box>
 			</Container>
+			<Outlet />
 		</>
 	);
 }
