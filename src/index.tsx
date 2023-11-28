@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { StyledEngineProvider } from '@mui/material/styles';
 import RoutesComponent from './routes/routes';
+import { StepperProvider } from './context/StepperContext';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -16,8 +17,10 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<StyledEngineProvider injectFirst>
-				<RoutesComponent />
-				<App />
+				<StepperProvider>
+					<RoutesComponent />
+					<App />
+				</StepperProvider>
 			</StyledEngineProvider>
 		</Provider>
 	</React.StrictMode>

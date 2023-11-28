@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 // import CssBaseline from '@mui/material/CssBaseline';
 // import Container from '@mui/material/Container';
 import './Header.css';
@@ -23,16 +23,8 @@ import TopBar from '../../assets/images/topBar.svg';
 import transitions from '@material-ui/core/styles/transitions';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Outlet } from 'react-router-dom';
-
-const steps = [
-	'Occupation',
-	'Lifestyle',
-	'Medical History',
-	'Family History',
-	'Juvenile Questions',
-	'Travel and Residence',
-	'Summary',
-];
+import { useStepper } from '../../context/StepperContext';
+import { steps } from '../../helpers/constants';
 
 interface CustomStepIconProps {
 	active: boolean;
@@ -67,13 +59,8 @@ const CustomStepIcon: React.FC<CustomStepIconProps> = ({
 };
 
 export default function Header() {
-	const [activeStep, setActiveStep] = React.useState(0);
-	const [progress, setProgress] = React.useState(
-		Math.ceil((activeStep / 7) * 100)
-	);
-	const [completed, setCompleted] = React.useState<{
-		[k: number]: boolean;
-	}>({});
+	const { currentStep, setStep, progress, completed } = useStepper();
+
 	const QontoConnector = styled(StepConnector)(() => ({
 		[`&.${transitions.create('left')}`]: {
 			left: 'calc(-50% + 12px)',
@@ -92,20 +79,9 @@ export default function Header() {
 		},
 	}));
 	const handleBack = () => {
-		setActiveStep((prevActiveStep) => Math.max(0, prevActiveStep + 1));
+		setStep(Math.max(0, currentStep - 1));
 	};
 
-	const handleComplete = () => {
-		if (activeStep != steps.length) {
-			console.log(activeStep + 1);
-
-			setProgress(Math.ceil(((activeStep + 1) / 7) * 100));
-			const newCompleted = completed;
-			newCompleted[activeStep] = true;
-			setCompleted(newCompleted);
-			handleBack();
-		}
-	};
 	return (
 		<>
 			<CssBaseline />
@@ -137,7 +113,7 @@ export default function Header() {
 						}}
 					>
 						<Stepper
-							activeStep={activeStep}
+							activeStep={currentStep}
 							connector={<QontoConnector />}
 							className="xl:px-24 mt-3 mb-3"
 							nonLinear
@@ -145,11 +121,19 @@ export default function Header() {
 							{steps.map((label, index) => {
 								const stepProps: { completed?: boolean } = {};
 								return (
-									<Step key={label} {...stepProps} completed={completed[index]}>
+									<Step
+										key={label.name}
+										{...stepProps}
+										completed={completed[index]}
+									>
 										{index == 0 ? (
 											<Box sx={{ display: 'flex', flexDirection: 'row' }}>
 												<IconButton
-													onClick={() => handleComplete()}
+													onClick={() => {
+														console.log('clickedd');
+
+														handleBack();
+													}}
 													color="secondary"
 												>
 													<Avatar
@@ -167,13 +151,13 @@ export default function Header() {
 													className="text-ellipsis"
 													icon={null}
 													sx={{
-														color: index === activeStep ? 'red' : 'inherit', // Change the active tab color
+														color: index === currentStep ? 'red' : 'inherit', // Change the active tab color
 													}}
 													StepIconComponent={(props) => (
 														<CustomStepIcon {...props} step={index + 1} />
 													)}
 												>
-													{label}
+													{label.name}
 												</StepLabel>
 											</Box>
 										) : (
@@ -182,13 +166,13 @@ export default function Header() {
 													className="text-ellipsis"
 													icon={null}
 													sx={{
-														color: index === activeStep ? 'red' : 'inherit', // Change the active tab color
+														color: index === currentStep ? 'red' : 'inherit', // Change the active tab color
 													}}
 													StepIconComponent={(props) => (
 														<CustomStepIcon {...props} step={index + 1} />
 													)}
 												>
-													{label}
+													{label.name}
 												</StepLabel>
 											</Box>
 										)}

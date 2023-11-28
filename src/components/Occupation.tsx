@@ -13,7 +13,10 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import ButtonComponent from './layout/shared/Button';
+import ButtonComponent from './shared/Button';
+import { useStepper } from '../context/StepperContext';
+import { steps } from '../helpers/constants';
+import { useNavigate } from 'react-router-dom';
 
 const names = [
 	'Oliver Hansen',
@@ -30,6 +33,12 @@ const names = [
 
 const Occupation = () => {
 	const [personName, setPersonName] = React.useState<string[]>([]);
+	const { currentStep, setStep, setProgress, completed, setCompleted } =
+		useStepper();
+
+	const navigate = useNavigate();
+
+	console.log(currentStep);
 
 	const handleChange = (event: SelectChangeEvent<typeof personName>) => {
 		const {
@@ -42,6 +51,18 @@ const Occupation = () => {
 			(val: string) => val !== item
 		);
 		setPersonName(chipsAferDeletion);
+	};
+
+	const handleContinue = () => {
+		if (currentStep != steps.length) {
+			setProgress(Math.ceil(((currentStep + 1) / 7) * 100));
+			const newCompleted = completed;
+			newCompleted[currentStep] = true;
+			setCompleted(newCompleted);
+			const activeStep = Math.max(0, currentStep + 1);
+			setStep(activeStep);
+			navigate(steps[activeStep].path);
+		}
 	};
 
 	return (
@@ -113,7 +134,7 @@ const Occupation = () => {
 				<ButtonComponent
 					variant="contained"
 					text="Continue"
-					onClick={() => {}}
+					onClick={handleContinue}
 					classes="ml-3"
 				/>
 			</div>

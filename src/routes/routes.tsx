@@ -1,5 +1,10 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+	HashRouter as Router,
+	Route,
+	Routes,
+	Navigate,
+} from 'react-router-dom';
 
 //shared components
 import Header from '../components/layout';
@@ -17,6 +22,14 @@ const RoutesComponent = () => {
 	return (
 		<Router>
 			<Routes>
+				<Route
+					path="/"
+					element={
+						<>
+							<Navigate to="/occupation" />
+						</>
+					}
+				/>
 				<Route element={<Header />}>
 					<Route path="occupation" element={<OccupationPage />} />
 					<Route path="lifestyle" element={<LifestyleComponent />} />
