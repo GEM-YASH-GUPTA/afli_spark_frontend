@@ -13,10 +13,6 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import ButtonComponent from './shared/Button';
-import { useStepper } from '../context/StepperContext';
-import { steps } from '../helpers/constants';
-import { useNavigate } from 'react-router-dom';
 
 const names = [
 	'Oliver Hansen',
@@ -33,12 +29,6 @@ const names = [
 
 const Occupation = () => {
 	const [personName, setPersonName] = React.useState<string[]>([]);
-	const { currentStep, setStep, setProgress, completed, setCompleted } =
-		useStepper();
-
-	const navigate = useNavigate();
-
-	console.log(currentStep);
 
 	const handleChange = (event: SelectChangeEvent<typeof personName>) => {
 		const {
@@ -53,21 +43,9 @@ const Occupation = () => {
 		setPersonName(chipsAferDeletion);
 	};
 
-	const handleContinue = () => {
-		if (currentStep != steps.length) {
-			setProgress(Math.ceil(((currentStep + 1) / 7) * 100));
-			const newCompleted = completed;
-			newCompleted[currentStep] = true;
-			setCompleted(newCompleted);
-			const activeStep = Math.max(0, currentStep + 1);
-			setStep(activeStep);
-			navigate(steps[activeStep].path);
-		}
-	};
-
 	return (
 		<div className="flex flex-col items-center justify-center p-8">
-			<Card className="rounded-2xl shadow-none" sx={{ minWidth: '90%' }}>
+			<Card className="rounded-2xl shadow-none w-10/12">
 				<CardContent className="p-8">
 					<Typography
 						className="font-Montserrat font-medium text-sm  "
@@ -124,20 +102,6 @@ const Occupation = () => {
 					</div>
 				</CardContent>
 			</Card>
-			<div className="flex  mt-8">
-				<ButtonComponent
-					variant="outlined"
-					text="Save And Exit"
-					onClick={() => {}}
-					classes=""
-				/>
-				<ButtonComponent
-					variant="contained"
-					text="Continue"
-					onClick={handleContinue}
-					classes="ml-3"
-				/>
-			</div>
 		</div>
 	);
 };

@@ -3,7 +3,10 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
+body {
+	height: 100vh;
+	width: 100vw;
+}
 .top-bar {
 	width: 100%;
 	height: 3px;
@@ -13,10 +16,10 @@
 	height: auto;
 	margin-left: 10px;
 }
-.buttonContainer: {
-	display: 'flex';
-	flexdirection: 'row';
-	justifycontent: 'space-between';
+.buttonContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .text-ellipsis {
