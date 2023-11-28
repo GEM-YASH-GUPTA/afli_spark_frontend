@@ -112,7 +112,7 @@ export default function Header() {
 		<>
 			<CssBaseline />
 			<Container maxWidth={false} disableGutters>
-				<Box sx={{ bgcolor: '#F5F5F5', height: 'max-content' }}>
+				<Box sx={{ bgcolor: '#F5F5F5', height: '100vh', overflowY: 'scroll' }}>
 					<AppBar position="static" sx={{ backgroundColor: '#FFFFFF' }}>
 						<Avatar
 							variant="square"
@@ -202,9 +202,9 @@ export default function Header() {
 							<LinearProgress variant="determinate" value={progress} />
 						</Box>
 					</AppBar>
+					<Outlet />
 				</Box>
 			</Container>
-			<Outlet />
 		</>
 	);
 }

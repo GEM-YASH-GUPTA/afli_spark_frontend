@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import ButtonComponent from './layout/shared/Button';
-import { Box, Card, CardContent, Chip, TextField } from '@mui/material';
+import { Avatar, Box, Card, CardContent, Chip, TextField } from '@mui/material';
 import ToggleButtonComponent from './layout/shared/toggleButton';
 import CheckBoxComponent from './layout/shared/checkBox';
 import CloseIcon from '@mui/icons-material/Close';
+import AddDetail from '../assets/images/addDetails.svg';
+import EditIcon from '../assets/images/PencilSimple.svg';
+import DeleteIcon from '../assets/images/TrashSimple.svg';
 
 const Lifestyle = () => {
 	const [toggleChecked, setToggleChecked] = useState(false);
@@ -44,7 +47,7 @@ const Lifestyle = () => {
 						<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
 							Diving (e.g. Skin diving, SCUBA diving or Free diving)
 						</div>
-						<div className="col-span-1">
+						<div className="col-span-1 flex justify-end">
 							<ToggleButtonComponent
 								checked={toggleChecked}
 								onChange={() => {
@@ -61,7 +64,7 @@ const Lifestyle = () => {
 								Motor Sports (eg. Circuit racing, Karting, Stock car racing etc)
 								or Power Boat Sports
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -101,7 +104,7 @@ const Lifestyle = () => {
 								Mountaineering (e.g. trekking, mountaineering etc) or Climbing
 								Sports (e.g. bouldering, ice climbing, indoor climbing etc)
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -140,7 +143,7 @@ const Lifestyle = () => {
 							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Parachuting or Paragliding
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -179,7 +182,7 @@ const Lifestyle = () => {
 							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Sailing
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -225,7 +228,7 @@ const Lifestyle = () => {
 							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Others
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -288,7 +291,7 @@ const Lifestyle = () => {
 							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Tobacco (e.g. Cigarette, Bidi, Cigar and/or PanMasala)
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -335,7 +338,7 @@ const Lifestyle = () => {
 							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Alcohol (e.g. Beer, Wine and/or Hard Liquor)
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -383,7 +386,7 @@ const Lifestyle = () => {
 								Drugs that are not prescribed bydoctore (e.g. Tranqillsers,
 								Stimulants, Narcotics etc.)
 							</div>
-							<div className="col-span-1">
+							<div className="col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -413,6 +416,162 @@ const Lifestyle = () => {
 									checked={checkBoxChecked}
 									classes={''}
 								></CheckBoxComponent>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<div className="grid grid-cols-12 mt-10">
+							<div className="col-span-12  font-Montserrat font-normal font-semibold text-sm">
+								Tranquilers
+							</div>
+						</div>
+						<div className="grid grid-cols-12 mt-2">
+							<div className="col-span-12 mt-4 mb-4 font-Montserrat font-normal font-medium text-sm">
+								Please indicate the duration (in years) that the drug has been
+								consumed
+							</div>
+							<div className="col-span-12 grid grid-cols-12">
+								<div className="col-span-7">
+									<TextField
+										onBlur={handleChange}
+										id="outlined-basic"
+										label="Outlined"
+										variant="outlined"
+										className="w-full"
+									/>
+								</div>
+								<div
+									className="col-span-4 ml-5"
+									style={{ display: 'flex', alignItems: 'center' }}
+								>
+									<Avatar
+										variant="rounded"
+										alt="Logo"
+										src={AddDetail}
+										sx={{
+											width: '25px',
+											height: '25px',
+										}}
+										className="flex"
+									/>
+									<span className="flex text-vivid-orange ml-3">
+										Add Details
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<div className="grid grid-cols-12 mt-10">
+							<div className="col-span-11  font-Montserrat font-normal font-semibold text-sm">
+								I have been using it for 7/8 years
+							</div>
+							<div
+								className="col-span-1"
+								style={{
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'flex-end',
+								}}
+							>
+								<Avatar
+									variant="rounded"
+									alt="Logo"
+									src={EditIcon}
+									sx={{
+										width: '25px',
+										height: '25px',
+									}}
+									className="flex"
+								/>
+								<Avatar
+									variant="rounded"
+									alt="Logo"
+									src={DeleteIcon}
+									sx={{
+										width: '25px',
+										height: '25px',
+									}}
+									className="flex"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<div className="grid grid-cols-12 mt-10">
+							<div className="col-span-12  font-Montserrat font-normal font-semibold text-sm">
+								Others
+							</div>
+						</div>
+						<div className="grid grid-cols-12 mt-2">
+							<div className="col-span-12 mt-4 mb-4 font-Montserrat font-normal font-medium text-sm">
+								Please indicate the duration (in years) that the drug has been
+								consumed
+							</div>
+							<div className="col-span-12 grid grid-cols-12">
+								<div className="col-span-7">
+									<TextField
+										onBlur={handleChange}
+										id="outlined-basic"
+										label="Outlined"
+										variant="outlined"
+										className="w-full"
+									/>
+								</div>
+								<div
+									className="col-span-4 ml-5"
+									style={{ display: 'flex', alignItems: 'center' }}
+								>
+									<Avatar
+										variant="rounded"
+										alt="Logo"
+										src={AddDetail}
+										sx={{
+											width: '25px',
+											height: '25px',
+										}}
+										className="flex"
+									/>
+									<span className="flex text-vivid-orange ml-3">
+										Add Details
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<div className="grid grid-cols-12 mt-10">
+							<div className="col-span-11  font-Montserrat font-normal font-semibold text-sm">
+								I have been using it for 7/8 years
+							</div>
+							<div
+								className="col-span-1"
+								style={{
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'flex-end',
+								}}
+							>
+								<Avatar
+									variant="rounded"
+									alt="Logo"
+									src={EditIcon}
+									sx={{
+										width: '25px',
+										height: '25px',
+									}}
+									className="flex"
+								/>
+								<Avatar
+									variant="rounded"
+									alt="Logo"
+									src={DeleteIcon}
+									sx={{
+										width: '25px',
+										height: '25px',
+									}}
+									className="flex"
+								/>
 							</div>
 						</div>
 					</div>
