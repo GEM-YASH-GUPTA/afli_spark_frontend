@@ -109,7 +109,7 @@ export default function Header() {
 		<>
 			<CssBaseline />
 			<Container maxWidth={false} disableGutters>
-				<Box sx={{ bgcolor: '#F5F5F5', height: '100vh' }}>
+				<Box sx={{ bgcolor: '#F5F5F5' }}>
 					<AppBar position="static" sx={{ backgroundColor: '#FFFFFF' }}>
 						<Avatar
 							variant="square"
