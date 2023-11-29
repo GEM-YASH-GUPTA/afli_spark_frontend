@@ -22,7 +22,7 @@ import BackArrow from '../../assets/images/backArrowHeader.svg';
 import TopBar from '../../assets/images/topBar.svg';
 import transitions from '@material-ui/core/styles/transitions';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useStepper } from '../../context/StepperContext';
 import { steps } from '../../helpers/constants';
 
@@ -59,7 +59,15 @@ const CustomStepIcon: React.FC<CustomStepIconProps> = ({
 };
 
 export default function Header() {
-	const { currentStep, setStep, progress, completed } = useStepper();
+	const navigate = useNavigate();
+	const {
+		currentStep,
+		setStep,
+		progress,
+		setProgress,
+		completed,
+		setCompleted,
+	} = useStepper();
 
 	const QontoConnector = styled(StepConnector)(() => ({
 		[`&.${transitions.create('left')}`]: {
@@ -78,8 +86,20 @@ export default function Header() {
 			display: 'none',
 		},
 	}));
+
 	const handleBack = () => {
-		setStep(Math.max(0, currentStep - 1));
+		// setStep(Math.max(0, currentStep - 1));
+		setProgress(Math.ceil(((currentStep - 1) / 7) * 100));
+		console.log(currentStep);
+
+		const newCompleted = completed;
+		newCompleted[currentStep - 1] = false;
+		setCompleted(newCompleted);
+		const activeStep = Math.max(0, currentStep - 1);
+		setStep(activeStep);
+		console.log(activeStep);
+
+		navigate(steps[activeStep].path);
 	};
 
 	return (
@@ -180,10 +200,10 @@ export default function Header() {
 								);
 							})}
 						</Stepper>
-						<Box sx={{ width: '100%' }}>
-							<LinearProgress variant="determinate" value={progress} />
-						</Box>
 					</AppBar>
+					<div className="min-w-full">
+						<LinearProgress variant="determinate" value={progress} />
+					</div>
 					<Outlet />
 				</Box>
 			</Container>

@@ -10,7 +10,6 @@ import {
 import Header from '../components/layout';
 
 // Pages
-import LifestyleComponent from '../pages/lifestyle';
 import MedicalHistoryPage from '../pages/medicalHistory';
 import FamilyHistoryPage from '../pages/familyHistory';
 import LifestylePage from '../pages/lifestyle';
@@ -18,10 +17,11 @@ import TravelResidencePage from '../pages/travelResidence';
 import SummaryPage from '../pages/summary';
 import OccupationPage from '../pages/occupation';
 import ButtonContainer from '../components/ButtonContainer';
+import JuvenileQues from '../components/JuvenileQues';
 
 const RoutesComponent = () => {
 	return (
-		<div className="bg-white-smoke h-screen">
+		<div className="bg-white-smoke min-h-screen">
 			<Router>
 				<Routes>
 					<Route
@@ -34,10 +34,10 @@ const RoutesComponent = () => {
 					/>
 					<Route element={<Header />}>
 						<Route path="occupation" element={<OccupationPage />} />
-						<Route path="lifestyle" element={<LifestyleComponent />} />
+						<Route path="lifestyle" element={<LifestylePage />} />
 						<Route path="medical-history" element={<MedicalHistoryPage />} />
 						<Route path="family-history" element={<FamilyHistoryPage />} />
-						<Route path="juvenile-ques" element={<LifestylePage />} />
+						<Route path="juvenile-ques" element={<JuvenileQues />} />
 						<Route path="travel-residence" element={<TravelResidencePage />} />
 						<Route path="summary" element={<SummaryPage />} />
 					</Route>
