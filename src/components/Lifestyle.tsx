@@ -43,10 +43,10 @@ const Lifestyle = () => {
 						</div>
 					</div>
 					<div className="grid grid-cols-12 mt-10">
-						<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+						<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 							Diving (e.g. Skin diving, SCUBA diving or Free diving)
 						</div>
-						<div className="col-span-1 flex justify-end">
+						<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 							<ToggleButtonComponent
 								checked={toggleChecked}
 								onChange={() => {
@@ -59,11 +59,11 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className=" pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Motor Sports (eg. Circuit racing, Karting, Stock car racing etc)
 								or Power Boat Sports
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className=" pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -74,7 +74,7 @@ const Lifestyle = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'Motor Car Racing'}
 									onChange={() => {
@@ -84,7 +84,7 @@ const Lifestyle = () => {
 									classes={''}
 								></CheckBoxComponent>
 							</div>
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'Motorcycle Racing'}
 									onChange={() => {
@@ -99,11 +99,11 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Mountaineering (e.g. trekking, mountaineering etc) or Climbing
 								Sports (e.g. bouldering, ice climbing, indoor climbing etc)
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -114,7 +114,7 @@ const Lifestyle = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'Mountain Climbing'}
 									onChange={() => {
@@ -124,7 +124,7 @@ const Lifestyle = () => {
 									classes={''}
 								></CheckBoxComponent>
 							</div>
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'Rock Climbing (Indoor)'}
 									onChange={() => {
@@ -139,10 +139,10 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Parachuting or Paragliding
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -153,7 +153,7 @@ const Lifestyle = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'Parachuting'}
 									onChange={() => {
@@ -163,7 +163,7 @@ const Lifestyle = () => {
 									classes={''}
 								></CheckBoxComponent>
 							</div>
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'Parachuting'}
 									onChange={() => {
@@ -178,10 +178,10 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Sailing
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -192,13 +192,13 @@ const Lifestyle = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-12">
+							<div className="col-span-7">
 								<TextField
 									onBlur={handleChange}
 									id="outlined-basic"
 									label="Outlined"
 									variant="outlined"
-									className="w-5/12"
+									className="w-full"
 								/>
 								<div className="flex col-span-12 py-3">
 									{personName.map((selected, ind) => (
@@ -224,10 +224,10 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Others
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -238,13 +238,13 @@ const Lifestyle = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-12">
+							<div className="col-span-7">
 								<TextField
 									onBlur={handleChange}
 									id="outlined-basic"
 									label="Outlined"
 									variant="outlined"
-									className="w-5/12"
+									className="w-full"
 								/>
 								<div className="flex col-span-12 py-3">
 									{personName.map((selected, ind) => (
@@ -287,10 +287,10 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Tobacco (e.g. Cigarette, Bidi, Cigar and/or PanMasala)
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -302,13 +302,13 @@ const Lifestyle = () => {
 						</div>
 
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-12">
+							<div className="col-span-7">
 								<TextField
 									onBlur={handleChange}
 									id="outlined-basic"
 									label="Outlined"
 									variant="outlined"
-									className="w-5/12"
+									className="w-full"
 								/>
 								<div className="flex col-span-12 py-3">
 									{personName.map((selected, ind) => (
@@ -334,10 +334,10 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Alcohol (e.g. Beer, Wine and/or Hard Liquor)
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -349,13 +349,13 @@ const Lifestyle = () => {
 						</div>
 
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-12">
+							<div className="col-span-7">
 								<TextField
 									onBlur={handleChange}
 									id="outlined-basic"
 									label="Outlined"
 									variant="outlined"
-									className="w-5/12"
+									className="w-full"
 								/>
 								<div className="flex col-span-12 py-3">
 									{personName.map((selected, ind) => (
@@ -381,11 +381,11 @@ const Lifestyle = () => {
 
 					<div>
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-medium text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-medium text-sm">
 								Drugs that are not prescribed bydoctore (e.g. Tranqillsers,
 								Stimulants, Narcotics etc.)
 							</div>
-							<div className="col-span-1 flex justify-end">
+							<div className="pl-7 md:pl-0 col-span-1 flex justify-end">
 								<ToggleButtonComponent
 									checked={toggleChecked}
 									onChange={() => {
@@ -396,7 +396,7 @@ const Lifestyle = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-12 mt-2">
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'Tranquillsers'}
 									onChange={() => {
@@ -406,7 +406,7 @@ const Lifestyle = () => {
 									classes={''}
 								></CheckBoxComponent>
 							</div>
-							<div className="col-span-3">
+							<div className="col-span-12 md:col-span-3">
 								<CheckBoxComponent
 									label={'None of the Above'}
 									onChange={() => {
@@ -462,11 +462,11 @@ const Lifestyle = () => {
 						</div>
 
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-semibold text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-semibold text-sm">
 								I have been using it for 7/8 years
 							</div>
 							<div
-								className="col-span-1"
+								className="col-span-1 pl-7 md:pl-0"
 								style={{
 									display: 'flex',
 									alignItems: 'center',
@@ -540,11 +540,11 @@ const Lifestyle = () => {
 						</div>
 
 						<div className="grid grid-cols-12 mt-10">
-							<div className="col-span-11  font-Montserrat font-normal font-semibold text-sm">
+							<div className="pr-7 md:pr-0 col-span-11  font-Montserrat font-normal font-semibold text-sm">
 								I have been using it for 7/8 years
 							</div>
 							<div
-								className="col-span-1"
+								className="col-span-1 pl-7 md:pl-0"
 								style={{
 									display: 'flex',
 									alignItems: 'center',
