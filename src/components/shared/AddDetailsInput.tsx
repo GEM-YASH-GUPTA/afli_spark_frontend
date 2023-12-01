@@ -36,7 +36,7 @@ const AddDetailsInput: React.FC<ButtonProps> = ({
 
 				<div className="grid grid-cols-12 mt-2">
 					<div className="col-span-12 grid grid-cols-12">
-						<div className="col-span-7">
+						<div className="col-span-12 md:col-span-7">
 							<TextField
 								onBlur={handleChange}
 								id="outlined-basic"
@@ -46,7 +46,7 @@ const AddDetailsInput: React.FC<ButtonProps> = ({
 							/>
 						</div>
 						<div
-							className="col-span-4 ml-5"
+							className="col-span-12 mt-4 md:col-span-4 md:ml-5 md:mt-0"
 							style={{ display: 'flex', alignItems: 'center' }}
 						>
 							<Avatar
